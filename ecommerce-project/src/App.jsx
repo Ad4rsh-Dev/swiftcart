@@ -2,6 +2,7 @@ import { HomePage } from './Pages/HomePage'
 import { Routes, Route } from 'react-router';
 import { CheckoutPage } from './Pages/checkout/CheckoutPage';
 import { TrackingPage } from './Pages/TrackingPage';
+import { NotFoundPage } from './Pages/NotFoundPage';
 import { OrdersPage } from './Pages/OrdersPage';
 import './App.css'
 

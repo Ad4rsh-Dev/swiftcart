@@ -1,17 +1,23 @@
 import { Header } from '../components/Header';
+import { Link } from 'react-router';
+import { useEffect } from 'react';
 import './TrackingPage.css';
 
 export function TrackingPage() {
+    useEffect(() => {
+        document.title = "Tracking";
+    }, []);
+
     return (
         <>
-            <title>Tracking</title>
+            <link rel="icon" type="image/svg+xml" href="tracking-favicon.png" />
             <Header />
 
             <div className="tracking-page">
                 <div className="order-tracking">
-                    <a className="back-to-orders-link link-primary" href="/orders">
+                    <Link className="back-to-orders-link link-primary" to="/orders">
                         View all orders
-                    </a>
+                    </Link>
 
                     <div className="delivery-date">
                         Arriving on Monday, June 13
@@ -25,18 +31,16 @@ export function TrackingPage() {
                         Quantity: 1
                     </div>
 
-                    <img className="product-image" src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+                    <img
+                        className="product-image"
+                        src="images/products/athletic-cotton-socks-6-pairs.jpg"
+                        alt="Product"
+                    />
 
                     <div className="progress-labels-container">
-                        <div className="progress-label">
-                            Preparing
-                        </div>
-                        <div className="progress-label current-status">
-                            Shipped
-                        </div>
-                        <div className="progress-label">
-                            Delivered
-                        </div>
+                        <div className="progress-label">Preparing</div>
+                        <div className="progress-label current-status">Shipped</div>
+                        <div className="progress-label">Delivered</div>
                     </div>
 
                     <div className="progress-bar-container">
