@@ -1,6 +1,7 @@
-import dayjs from "dayjs";
+import { DeliveryDate } from "./DeliveryDate";
 import { FormatMoney } from "../../utils/money";
 import { DeliveryOptions } from "./DeliveryOptions";
+import { CartItemDetails } from "./cartItemDetails";
 
 export function OrderSummary({ cart, deliveryOptions }) {
     return (
@@ -8,41 +9,16 @@ export function OrderSummary({ cart, deliveryOptions }) {
             <div className="order-summary">
                 {deliveryOptions.length > 0 && cart.map((cartItem) => {
 
-                    const selectedDeliveryOption = deliveryOptions.find((deliveryOption) => {
-                        return deliveryOption.id === cartItem.deliveryOptionId
-                    });
+
 
                     return (
                         <div key={cartItem.productId} className="cart-item-container">
-                            <div className="delivery-date">
-                                Delivery date: {dayjs(selectedDeliveryOption.estimatedDeliveryTimeMs).format('dddd, MMMM D')}
-                            </div>
+                            <DeliveryDate cartItem={cartItem} deliveryOptions={deliveryOptions} />
 
                             <div className="cart-item-details-grid">
-                                <img className="product-image"
-                                    src={cartItem.product.image} />
+                                <CartItemDetails cartItem={cartItem} />
 
-                                <div className="cart-item-details">
-                                    <div className="product-name">
-                                        {cartItem.product.name}
-                                    </div>
-                                    <div className="product-price">
-                                        {FormatMoney(cartItem.product.pricceCents)}
-                                    </div>
-                                    <div className="product-quantity">
-                                        <span>
-                                            Quantity: <span className="quantity-label">{cartItem.quantity}</span>
-                                        </span>
-                                        <span className="update-quantity-link link-primary">
-                                            Update
-                                        </span>
-                                        <span className="delete-quantity-link link-primary">
-                                            Delete
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <DeliveryOptions cartItem={cartItem} deliveryOptions={deliveryOptions}/> 
+                                <DeliveryOptions cartItem={cartItem} deliveryOptions={deliveryOptions} />
                             </div>
                         </div>
                     );

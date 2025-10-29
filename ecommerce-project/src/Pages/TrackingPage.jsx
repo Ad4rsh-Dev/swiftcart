@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { useEffect } from 'react';
 import './TrackingPage.css';
 
-export function TrackingPage() {
+export function TrackingPage({ cart }) {
     useEffect(() => {
         document.title = "Tracking";
     }, []);
@@ -11,7 +11,7 @@ export function TrackingPage() {
     return (
         <>
             <link rel="icon" type="image/svg+xml" href="tracking-favicon.png" />
-            <Header />
+            <Header cart={cart}/>
 
             <div className="tracking-page">
                 <div className="order-tracking">
