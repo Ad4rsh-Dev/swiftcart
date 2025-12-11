@@ -22,7 +22,7 @@ It features a **shopping cart**, **checkout system**, **order tracking**, and **
 | Frontend        | Backend        | Database         |
 |-----------------|----------------|----------------|
 | React.js        | Node.js         | JSON/Local DB  |
-| Axios           | Custom backend  | SQLite (if used) |
+| Axios           | Custom backend  |  |
 | CSS / Flexbox   |                 |                |
 
 ---
